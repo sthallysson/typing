@@ -25,6 +25,10 @@ body {
   align-items: center;
 }
 
+.container:focus {
+  outline: none;
+}
+
 .container .valid-keys {
   font-size: 10rem;
   font-weight: bold;
@@ -41,6 +45,14 @@ body {
   opacity: 0.5;
 }
 
+.container .valid-keys .matched.completed {
+  position: relative;
+  top: 0;
+  left: 0;
+  animation: moveDown 200ms ease-in;
+  opacity: 1;
+}
+
 .container .completed-words {
   width: max-content;
   height: 100vh;
@@ -53,6 +65,12 @@ body {
   font-size: 1.8rem;
   line-height: 2.5rem;
   opacity: 0.5;
+  display: flex;
+}
+
+.container .completed-words ol {
+  flex-grow: 1;
+  align-self: flex-end;
 }
 
 .container .typed-keys {
@@ -60,4 +78,19 @@ body {
   font-size: 1.3rem;
   width: 600px;
   overflow: hidden;
+}
+
+@keyframes moveDown {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  20% {
+    top: -3rem;
+    background-color: #26947c;
+  }
+  100% {
+    top: 15rem;
+    opacity: 0;
+  }
 }
